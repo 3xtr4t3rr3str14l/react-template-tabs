@@ -1,0 +1,2 @@
+README
+# react-redux-template
