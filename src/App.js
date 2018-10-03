@@ -1,12 +1,26 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
+
 import MyMuiTheme from './MuiTheme';
-import NavigationDrawer from './components/NavigationDrawer';
 import VisibleView from './containers/VisibleView';
 import actions from './actions';
 import TopBar from './components/TopBar';
+import bambooBg from './images/greenBamboo.jpg';
+
+const styles = {
+  content: {
+    margin: 'auto',
+    width: '50%',
+    backgroundColor: 'burlywood',
+  },
+  background: {
+    backgroundImage: `url(${bambooBg})`,
+    height: 'inherit',
+    paddingTop: '20px',
+  },
+};
 
 class App extends React.Component {
   componentWillMount() {
@@ -22,15 +36,11 @@ class App extends React.Component {
 
   render() {
     return (
-      <MuiThemeProvider muiTheme={MyMuiTheme}>
-        <div>
-          <div>
-            <NavigationDrawer />
+      <MuiThemeProvider theme={MyMuiTheme}>
+        <div style={styles.background}>
+          <div style={styles.content}>
             <TopBar />
-            <div style={{
-              paddingLeft: '350px',
-            }}
-            >
+            <div>
               <VisibleView />
             </div>
           </div>

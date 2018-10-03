@@ -13,6 +13,12 @@ View.propTypes = {
 
 const viewList = {
   HOME: (<Home />),
+  ABOUT: (<div>ABOUT</div>),
+  PIPES: (<div>PIPES</div>),
+  SWAG: (<div>SWAG</div>),
+  CONTACT: (<div>CONTACT</div>),
+  EVENTS: (<div>EVENTS</div>),
+  GALLERY: (<div>GALLERY</div>),
 };
 
 const getVisibleView = (filter) => {

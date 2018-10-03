@@ -6,6 +6,7 @@ module.exports = {
     "import/no-extraneous-dependencies": [2, { devDependencies: true }],
     "react/forbid-prop-types": [0],
     "no-unused-vars": [0],
+    "react/prop-types": [0],
    },
    "env": {
       "browser": true,

@@ -1,5 +1,5 @@
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import baseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
+import { createMuiTheme } from '@material-ui/core/styles';
+// import baseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 
 const overwrites = {
   palette: {
@@ -12,4 +12,4 @@ const overwrites = {
     canvasColor: '#212121',
   },
 };
-export default getMuiTheme(baseTheme, overwrites);
+export default createMuiTheme({ overwrites });
