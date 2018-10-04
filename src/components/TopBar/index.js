@@ -32,9 +32,9 @@ const styles = {
 };
 
 const Header = props => (
-  <div onClick={() => props.onClick('HOME')} role="button" tabIndex={0}>
+  <div>
     <div style={styles.disclaimer}>Bamboo Tobacco Bongs are Intended for Tobacco use only</div>
-    <div style={styles.header}>
+    <div style={styles.header} onClick={() => props.onClick('HOME')} role="button" tabIndex={0}>
       <img src={hibiscus} alt="Hibiscus Flower" style={styles.hibiscus} />
       <div style={styles.titleText}>Pooka Bongs</div>
       <img src={hibiscus} alt="Hibiscus Flower" style={styles.hibiscus} />
