@@ -7,18 +7,23 @@ import MyMuiTheme from './MuiTheme';
 import VisibleView from './containers/VisibleView';
 import actions from './actions';
 import TopBar from './components/TopBar';
-import bambooBg from './images/greenBamboo.jpg';
+import greenBamboo from './images/greenBamboo.jpg';
+import bambooFloor from './images/bambooFloor.jpg';
 
 const styles = {
   content: {
     margin: 'auto',
-    width: '50%',
-    backgroundColor: 'burlywood',
+    width: '71%',
+    // backgroundColor: 'burlywood',
+    backgroundImage: `url(${bambooFloor})`,
   },
   background: {
-    backgroundImage: `url(${bambooBg})`,
-    height: 'inherit',
+    backgroundImage: `url(${greenBamboo})`,
+    height: '100%',
     paddingTop: '20px',
+  },
+  visibleView: {
+    paddingBottom: '30px',
   },
 };
 
@@ -36,11 +41,11 @@ class App extends React.Component {
 
   render() {
     return (
-      <MuiThemeProvider theme={MyMuiTheme}>
+      <MuiThemeProvider theme={MyMuiTheme} >
         <div style={styles.background}>
           <div style={styles.content}>
             <TopBar />
-            <div>
+            <div style={styles.visibleView}>
               <VisibleView />
             </div>
           </div>

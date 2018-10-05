@@ -1,8 +1,83 @@
 import React from 'react';
-import Card from '@material-ui/core/Card';
+import GridList from '@material-ui/core/GridList';
+import GridListTile from '@material-ui/core/GridListTile';
+import GridListTileBar from '@material-ui/core/GridListTileBar';
+import IconButton from '@material-ui/core/IconButton';
+import { withStyles } from '@material-ui/core/styles';
+// import StarBorderIcon from '@material-ui/icons/StarBorder';
 
-const Home = () => (
-  <Card style={{ width: '100%' }}>Home</Card>
-);
+import ContentCard from '../ContentCard';
+import image from '../../../images/hibiscus.png';
 
-export default Home;
+const tileData = [
+  {
+    img: image,
+    title: 'Image',
+    author: 'author',
+  },
+  {
+    img: image,
+    title: 'Image',
+    author: 'author',
+  },
+  {
+    img: image,
+    title: 'Image',
+    author: 'author',
+  },
+];
+
+const styles = theme => ({
+  root: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'space-around',
+    overflow: 'hidden',
+  },
+  gridList: {
+    flexWrap: 'nowrap',
+    // Promote the list into his own layer on Chrome. This cost memory but helps keeping high FPS.
+    transform: 'translateZ(0)',
+  },
+  title: {
+    color: theme.palette.primary.light,
+  },
+  titleBar: {
+    background:
+      'linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)',
+  },
+});
+
+const Home = (props) => {
+  const { classes } = props;
+
+  return (
+    <ContentCard>
+      <div className={classes.root}>
+        <GridList className={classes.gridList} cols={2.5}>
+          {tileData.map(tile => (
+            <GridListTile key={tile.img}>
+              <img src={tile.img} alt={tile.title} />
+              <GridListTileBar
+                title={tile.title}
+                classes={{
+                  root: classes.titleBar,
+                  title: classes.title,
+                }}
+                actionIcon={
+                  <IconButton>
+                    {
+                      // <StarBorderIcon className={classes.title} />
+                    }
+                  </IconButton>
+                }
+              />
+            </GridListTile>
+          ))}
+        </GridList>
+      </div>
+    </ContentCard>
+  );
+};
+
+export default withStyles(styles)(Home);

@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
 
 import actions from '../../actions';
 import hibiscus from '../../images/hibiscus.png';
@@ -12,6 +14,7 @@ const styles = {
     margin: 'auto',
     width: '50%',
     textAlign: 'center',
+    paddingTop: '10px',
   },
   header: {
     display: 'inline-flex',
@@ -19,8 +22,8 @@ const styles = {
   titleText: {
     textAlign: 'center',
     color: 'red',
-    fontFamily: 'Ravie',
-    fontSize: '80px',
+    fontFamily: 'ravie',
+    fontSize: '396%',
     margin: 'auto',
     width: '50%',
   },
@@ -28,6 +31,11 @@ const styles = {
     width: '15%',
     height: '15%',
     padding: '15px',
+  },
+  menu: {
+    paddingBottom: '33px',
+    margin: 'auto',
+    width: '75%',
   },
 };
 
@@ -42,45 +50,78 @@ const Header = props => (
   </div>
 );
 
-const Menu = props => (
-  <Tabs /* value={value} onChange={this.handleChange} */ >
-    <Tab
-      label="About Us"
-      href="#about"
-      onClick={() => props.onClick('ABOUT')}
-    />
-    <Tab
-      label="Pipes"
-      href="#pipes"
-      onClick={() => props.onClick('PIPES')}
-    />
-    <Tab
-      label="Swag"
-      href="#swag"
-      onClick={() => props.onClick('SWAG')}
-    />
-    <Tab
-      label="Contact"
-      href="#contact"
-      onClick={() => props.onClick('CONTACT')}
-    />
-    <Tab
-      label="Events"
-      href="#events"
-      onClick={() => props.onClick('EVENTS')}
-    />
-    <Tab
-      label="Gallery"
-      href="#gallery"
-      onClick={() => props.onClick('GALLERY')}
-    />
-  </Tabs>
-);
+class MenuBar extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { anchorEl: null };
+  }
+
+  handleOpen = (event) => {
+    this.setState({ anchorEl: event.currentTarget });
+  };
+
+  handleClose = () => {
+    this.setState({ anchorEl: null });
+  };
+
+  render() {
+    const { anchorEl } = this.state;
+    return (
+      <Tabs style={styles.menu} >
+        <Tab
+          label="About Us"
+          href="#about"
+          onClick={() => this.props.onClick('ABOUT')}
+        />
+        <Tab
+          label="Pipes"
+          aria-owns={anchorEl ? 'simple-menu' : null}
+          aria-haspopup="true"
+          // href="#pipes"
+          // onClick={() => this.props.onClick('PIPES')}
+          onClick={this.handleOpen}
+          // onMouseOver={this.handleOpen}
+          // onMouseOut={this.handleClose}
+        />
+        <Menu
+          id="simple-menu"
+          anchorEl={anchorEl}
+          open={Boolean(anchorEl)}
+          onClose={this.handleClose}
+        >
+          <MenuItem /* onClick={this.handleClose} */ >Standard Pipes</MenuItem>
+          <MenuItem /* onClick={this.handleClose} */ >Custom Pipes</MenuItem>
+          <MenuItem /* onClick={this.handleClose} */ >Pro Shop</MenuItem>
+        </Menu>
+        <Tab
+          label="Swag"
+          href="#swag"
+          onClick={() => this.props.onClick('SWAG')}
+        />
+        <Tab
+          label="Contact"
+          href="#contact"
+          onClick={() => this.props.onClick('CONTACT')}
+        />
+        <Tab
+          label="Events"
+          href="#events"
+          onClick={() => this.props.onClick('EVENTS')}
+        />
+        <Tab
+          label="Gallery"
+          href="#gallery"
+          onClick={() => this.props.onClick('GALLERY')}
+        />
+      </Tabs>
+    );
+  }
+}
 
 const TopBar = props => (
   <div>
     {Header(props)}
-    {Menu(props)}
+    {<MenuBar onClick={props.onClick} />}
   </div>
 );
 
