@@ -13,7 +13,7 @@ import bambooFloor from './images/bambooFloor.jpg';
 const styles = {
   content: {
     margin: 'auto',
-    width: '71%',
+    width: '81%',
     // backgroundColor: 'burlywood',
     backgroundImage: `url(${bambooFloor})`,
   },

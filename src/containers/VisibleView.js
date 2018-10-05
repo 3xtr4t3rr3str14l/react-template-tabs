@@ -4,9 +4,12 @@ import PropTypes from 'prop-types';
 import Home from '../components/views/Home';
 import About from '../components/views/About';
 // import Pipes from '../components/views/Pipes';
-// import Swag from '../components/views/Swag';
-// import Contact from '../components/views/Contact';
-// import Events from '../components/views/Events';
+import StandardPipes from '../components/views/Pipes/StandardPipes';
+import CustomPipes from '../components/views/Pipes/CustomPipes';
+import ProShop from '../components/views/Pipes/ProShop';
+import Swag from '../components/views/Swag';
+import Contact from '../components/views/Contact';
+import Events from '../components/views/Events';
 import Gallery from '../components/views/Gallery';
 
 const View = ({ viewType }) => (
@@ -19,11 +22,13 @@ View.propTypes = {
 
 const viewList = {
   HOME: (<Home />),
-  ABOUT: (<div>ABOUT</div>),
-  PIPES: (<div>PIPES</div>),
-  SWAG: (<div>SWAG</div>),
-  CONTACT: (<div>CONTACT</div>),
-  EVENTS: (<div>EVENTS</div>),
+  ABOUT: (<About />),
+  STANDARD_PIPES: (<StandardPipes />),
+  CUSTOM_PIPES: (<CustomPipes />),
+  PRO_SHOP: (<ProShop />),
+  SWAG: (<Swag />),
+  CONTACT: (<Contact />),
+  EVENTS: (<Events />),
   GALLERY: (<Gallery />),
 };
 

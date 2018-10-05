@@ -34,8 +34,8 @@ const styles = {
   },
   menu: {
     paddingBottom: '33px',
-    margin: 'auto',
-    width: '75%',
+    display: 'flex',
+    justifyContent: 'center',
   },
 };
 
@@ -69,6 +69,11 @@ class MenuBar extends React.Component {
     return (
       <Tabs style={styles.menu} >
         <Tab
+          label="Home"
+          href="#"
+          onClick={() => this.props.onClick('HOME')}
+        />
+        <Tab
           label="About Us"
           href="#about"
           onClick={() => this.props.onClick('ABOUT')}
@@ -89,9 +94,28 @@ class MenuBar extends React.Component {
           open={Boolean(anchorEl)}
           onClose={this.handleClose}
         >
-          <MenuItem /* onClick={this.handleClose} */ >Standard Pipes</MenuItem>
-          <MenuItem /* onClick={this.handleClose} */ >Custom Pipes</MenuItem>
-          <MenuItem /* onClick={this.handleClose} */ >Pro Shop</MenuItem>
+          <MenuItem
+            href="#standardpipes"
+            onClick={() => {
+              this.handleClose();
+              this.props.onClick('STANDARD_PIPES');
+            }}
+          >Standard Pipes
+          </MenuItem>
+          <MenuItem
+            onClick={() => {
+              this.handleClose();
+              this.props.onClick('CUSTOM_PIPES');
+            }}
+          >Custom Pipes
+          </MenuItem>
+          <MenuItem
+            onClick={() => {
+              this.handleClose();
+              this.props.onClick('PRO_SHOP');
+            }}
+          >Pro Shop
+          </MenuItem>
         </Menu>
         <Tab
           label="Swag"
