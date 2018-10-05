@@ -1,10 +1,29 @@
 import React from 'react';
-import ContentCard from '../ContentCard';
+import { withStyles } from '@material-ui/core/styles';
+import ContentCard from '../../ContentCard';
 
-const styles = {};
+const styles = {
+  content: {
+    margin: 'auto',
+    width: '50%',
+    textAlign: 'center',
+    paddingBottom: '40px',
+  },
+  title: {
+    textAlign: 'center',
+  },
+};
 
-const Contact = () => (
-  <ContentCard>Contact</ContentCard>
-);
+const Contact = (props) => {
+  const { classes } = props;
 
-export default Contact;
+  return (
+    <ContentCard>
+      <div className={classes.content}>
+        <h2 className={classes.title}>Contact</h2>
+      </div>
+    </ContentCard>
+  );
+};
+
+export default withStyles(styles)(Contact);

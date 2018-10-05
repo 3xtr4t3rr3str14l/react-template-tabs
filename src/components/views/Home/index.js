@@ -6,7 +6,7 @@ import IconButton from '@material-ui/core/IconButton';
 import { withStyles } from '@material-ui/core/styles';
 // import StarBorderIcon from '@material-ui/icons/StarBorder';
 
-import ContentCard from '../ContentCard';
+import ContentCard from '../../ContentCard';
 import image from '../../../images/hibiscus.png';
 
 const tileData = [
@@ -28,7 +28,7 @@ const tileData = [
 ];
 
 const styles = theme => ({
-  root: {
+  content: {
     display: 'flex',
     flexWrap: 'wrap',
     justifyContent: 'space-around',
@@ -53,7 +53,8 @@ const Home = (props) => {
 
   return (
     <ContentCard>
-      <div className={classes.root}>
+      <div className={classes.content}>
+        <h2 className={classes.title}>Welcome!</h2>
         <GridList className={classes.gridList} cols={2.5}>
           {tileData.map(tile => (
             <GridListTile key={tile.img}>

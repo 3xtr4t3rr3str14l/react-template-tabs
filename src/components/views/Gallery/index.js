@@ -6,11 +6,11 @@ import ListSubheader from '@material-ui/core/ListSubheader';
 import IconButton from '@material-ui/core/IconButton';
 import { withStyles } from '@material-ui/core/styles';
 
-import ContentCard from '../ContentCard';
+import ContentCard from '../../ContentCard';
 import image from '../../../images/hibiscus.png';
 
 const styles = theme => ({
-  root: {
+  content: {
     display: 'flex',
     flexWrap: 'wrap',
     justifyContent: 'space-around',
@@ -83,7 +83,8 @@ const Gallery = (props) => {
 
   return (
     <ContentCard>
-      <div className={classes.root}>
+      <div className={classes.content}>
+        <h2 className={classes.title}>Gallery</h2>
         <GridList cellHeight={180} className={classes.gridList}>
           <GridListTile key="Subheader" cols={2} style={{ height: 'auto' }}>
             <ListSubheader component="div">Picture Gallery 1</ListSubheader>

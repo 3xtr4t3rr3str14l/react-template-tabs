@@ -14,12 +14,11 @@ const styles = {
   content: {
     margin: 'auto',
     width: '81%',
-    // backgroundColor: 'burlywood',
     backgroundImage: `url(${bambooFloor})`,
   },
   background: {
     backgroundImage: `url(${greenBamboo})`,
-    height: '100%',
+    height: 'inherit',
     paddingTop: '20px',
   },
   visibleView: {

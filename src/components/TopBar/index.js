@@ -74,7 +74,7 @@ class MenuBar extends React.Component {
           onClick={() => this.props.onClick('HOME')}
         />
         <Tab
-          label="About Us"
+          label="About"
           href="#about"
           onClick={() => this.props.onClick('ABOUT')}
         />
