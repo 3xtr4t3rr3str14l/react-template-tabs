@@ -39,9 +39,6 @@ const styles = theme => ({
     // Promote the list into his own layer on Chrome. This cost memory but helps keeping high FPS.
     transform: 'translateZ(0)',
   },
-  title: {
-    color: theme.palette.primary.light,
-  },
   titleBar: {
     background:
       'linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)',
@@ -52,9 +49,8 @@ const Home = (props) => {
   const { classes } = props;
 
   return (
-    <ContentCard>
+    <ContentCard title="Welcome!">
       <div className={classes.content}>
-        <h2 className={classes.title}>Welcome!</h2>
         <GridList className={classes.gridList} cols={2.5}>
           {tileData.map(tile => (
             <GridListTile key={tile.img}>

@@ -9,15 +9,11 @@ const styles = {
   content: {
     margin: 'auto',
     width: '50%',
-    textAlign: 'center',
-    display: 'grid',
-    paddingBottom: '40px',
-  },
-  title: {
-    textAlign: 'center',
+    // display: 'grid',
   },
   button: {
     // margin: theme.spacing.unit,
+    marginTop: '10px',
   },
 };
 
@@ -25,9 +21,8 @@ const ProShop = (props) => {
   const { classes } = props;
 
   return (
-    <ContentCard>
+    <ContentCard title="Pro Shop">
       <div className={classes.content}>
-        <h2 className={classes.title}>Pro Shop</h2>
         <h4>This is the Pro Shop.  Tell us what you want your pipe to look like below.
         Anything goes!</h4>
         <TextField

@@ -1,4 +1,5 @@
 import React from 'react';
+import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 
 const styles = {
@@ -6,15 +7,22 @@ const styles = {
     margin: 'auto',
     width: '50%',
     background: 'rgb(255, 255, 255, 0.4)',
+    textAlign: 'center',
+    paddingBottom: '40px',
+  },
+  title: {
+    textAlign: 'center',
   },
 };
 
-const ContentCard = props => (
-  <Card style={styles.mainCard}>
-    <div>
-      {props.children}
-    </div>
-  </Card>
-);
+const ContentCard = (props) => {
+  const { classes } = props;
 
-export default ContentCard;
+  return (<Card style={styles.mainCard}>
+    <h2 className={classes.title}>{props.title}</h2>
+    {props.children}
+  </Card>
+  );
+};
+
+export default withStyles(styles)(ContentCard);

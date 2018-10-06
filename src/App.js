@@ -11,15 +11,16 @@ import greenBamboo from './images/greenBamboo.jpg';
 import bambooFloor from './images/bambooFloor.jpg';
 
 const styles = {
+  background: {
+    backgroundImage: `url(${greenBamboo})`,
+    paddingTop: '20px',
+    paddingBottom: '20px',
+    minHeight: '100%',
+  },
   content: {
     margin: 'auto',
     width: '81%',
     backgroundImage: `url(${bambooFloor})`,
-  },
-  background: {
-    backgroundImage: `url(${greenBamboo})`,
-    height: 'inherit',
-    paddingTop: '20px',
   },
   visibleView: {
     paddingBottom: '30px',

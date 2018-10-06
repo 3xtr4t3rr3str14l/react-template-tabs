@@ -16,11 +16,6 @@ const styles = {
   content: {
     margin: 'auto',
     width: '50%',
-    textAlign: 'center',
-    paddingBottom: '40px',
-  },
-  title: {
-    textAlign: 'center',
   },
   form: {
     display: 'grid',
@@ -59,9 +54,8 @@ class CustomPipes extends React.Component {
     const { raw, naturalstain, clearcoat } = this.state;
 
     return (
-      <ContentCard>
+      <ContentCard title="Custom Pipes">
         <div className={classes.content}>
-          <h2 className={classes.title}>Custom Pipes</h2>
           <form className={classes.form} autoComplete="off">
             <FormControl className={classes.formControl}>
               <InputLabel htmlFor="length-simple">Pipe length</InputLabel>

@@ -12,13 +12,6 @@ import ContentCard from '../../../ContentCard';
 import hibiscus from '../../../../images/hibiscus.png';
 
 const styles = {
-  content: {
-    margin: 'auto',
-    // width: '50%',
-  },
-  title: {
-    textAlign: 'center',
-  },
   hibiscus: {
     width: '15%',
     height: '15%',
@@ -67,14 +60,11 @@ const StandardPipes = (props) => {
   const { classes } = props;
 
   return (
-    <ContentCard>
-      <div className={classes.content}>
-        <h2 className={classes.title}>Standard Pipes</h2>
-        <div className={classes.imageGroup}>
-          {imageCard(props, 'Small Pipe', '$66')}
-          {imageCard(props, 'Medium Pipe', '$80')}
-          {imageCard(props, 'Large Pipe', '$120')}
-        </div>
+    <ContentCard title="Standard Pipes">
+      <div className={classes.imageGroup}>
+        {imageCard(props, 'Small Pipe', '$66')}
+        {imageCard(props, 'Medium Pipe', '$80')}
+        {imageCard(props, 'Large Pipe', '$120')}
       </div>
     </ContentCard>
   );
