@@ -21,7 +21,7 @@ const styles = {
   },
   titleText: {
     textAlign: 'center',
-    color: 'red',
+    color: '#fa8072',
     fontFamily: 'ravie',
     fontSize: '396%',
     margin: 'auto',
@@ -103,6 +103,7 @@ class MenuBar extends React.Component {
           >Standard Pipes
           </MenuItem>
           <MenuItem
+            href="#custompipes"
             onClick={() => {
               this.handleClose();
               this.props.onClick('CUSTOM_PIPES');
@@ -110,6 +111,7 @@ class MenuBar extends React.Component {
           >Custom Pipes
           </MenuItem>
           <MenuItem
+            href="#proshop"
             onClick={() => {
               this.handleClose();
               this.props.onClick('PRO_SHOP');

@@ -4,7 +4,9 @@ import { createMuiTheme } from '@material-ui/core/styles';
 
 
 const overwrites = {
-  // palette: {
+  palette: {
+    primary1Color: '#afb42b',
+    alternateTextColor: '#afb42b',
   //   primary1Color: '#8bc34a',
   //   primary2Color: '#bf360c',
   //   accent1Color: '#d84315',
@@ -12,6 +14,6 @@ const overwrites = {
   //   primary3Color: '#757575',
   //   accent3Color: '#ff5722',
   //   canvasColor: '#212121',
-  // },
+  },
 };
 export default createMuiTheme({ overwrites });

@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -9,8 +10,10 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import Select from '@material-ui/core/Select';
 import Button from '@material-ui/core/Button';
+import Recaptcha from 'react-recaptcha';
 
 import ContentCard from '../../../ContentCard';
+import actions from '../../../../actions';
 
 const styles = {
   content: {
@@ -49,6 +52,10 @@ class CustomPipes extends React.Component {
     this.setState({ [name]: event.target.checked });
   }
 
+  reCaptchaVerifyCallback = (response) => {
+    this.setState({ gRecaptchaResponse: response });
+  };
+
   render() {
     const { classes } = this.props;
     const { raw, naturalstain, clearcoat } = this.state;
@@ -57,6 +64,7 @@ class CustomPipes extends React.Component {
       <ContentCard title="Custom Pipes">
         <div className={classes.content}>
           <form className={classes.form} autoComplete="off">
+            <h3>Pipe Order Details</h3>
             <FormControl className={classes.formControl}>
               <InputLabel htmlFor="length-simple">Pipe length</InputLabel>
               <Select
@@ -67,11 +75,6 @@ class CustomPipes extends React.Component {
                   id: 'length-simple',
                 }}
               >
-                {
-                  // <MenuItem value="">
-                  //   <em>None</em>
-                  // </MenuItem>
-                }
                 <MenuItem value={'small'}>Small (12 - 16 inches)</MenuItem>
                 <MenuItem value={'medium'}>Medium (16 - 22 inches)</MenuItem>
                 <MenuItem value={'large'}>Large (18 - 28 inches)</MenuItem>
@@ -87,11 +90,6 @@ class CustomPipes extends React.Component {
                   id: 'color-simple',
                 }}
               >
-                {
-                  // <MenuItem value="">
-                  //   <em>None</em>
-                  // </MenuItem>
-                }
                 <MenuItem value={'oak'}>Oak</MenuItem>
                 <MenuItem value={'redwood'}>Redwood</MenuItem>
                 <MenuItem value={'black'}>Black</MenuItem>
@@ -117,12 +115,16 @@ class CustomPipes extends React.Component {
                 }
                 label="Clear Coat"
               />
+              <br />
+              <h3>Contact Info</h3>
+              <Recaptcha
+                sitekey="6Ld6Q3QUAAAAABUA1ung_ljZd4pfFzojpVRDMhd1"
+                verifyCallback={this.reCaptchaVerifyCallback}
+              />
             </FormControl>
-            {
-              // <div>Pipe Finish</div>
-            }
           </form>
-          <Button variant="contained" className={classes.button}>
+          <br />
+          <Button variant="contained" className={classes.button} onClick={() => { this.props.sendMail(this.state); }}>
             Submit
           </Button>
         </div>
@@ -131,4 +133,13 @@ class CustomPipes extends React.Component {
   }
 }
 
-export default withStyles(styles)(CustomPipes);
+const mapDispatchToProps = dispatch => ({
+  sendMail: (formData) => {
+    dispatch(actions.sendMail(formData));
+  },
+});
+
+export default connect(
+  null,
+  mapDispatchToProps,
+)(withStyles(styles)(CustomPipes));

@@ -31,10 +31,19 @@ class App extends React.Component {
   componentWillMount() {
     const config = {
       version: '1.0.0',
-      // url: 'https://aliwuebalwjcbalwkjfdaslkh.com/',
-      // service: {
-      //   login: '',
-      // },
+      url: 'https://api.emailjs.com/api/v1.0/email/send',
+      service: {
+        sendmail: '',
+      },
+      data: {
+        service_id: 'gmail',
+        template_id: 'template_yYjE84ME',
+        user_id: 'user_uoAncUIB4AD9NWyLIl8iJ',
+        template_params: {
+          username: 'James',
+          // 'g-recaptcha-response': '03AHJ_ASjnLA214KSNKFJAK12sfKASfehbmfd...',
+        },
+      },
     };
     this.props.setConfig(config);
   }
