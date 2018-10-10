@@ -10,6 +10,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import Select from '@material-ui/core/Select';
 import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
 import Recaptcha from 'react-recaptcha';
 
 import ContentCard from '../../../ContentCard';
@@ -30,6 +31,11 @@ const styles = {
     minWidth: 120,
     paddingBottom: '40px',
   },
+  textField: {
+    // marginLeft: theme.spacing.unit,
+    // marginRight: theme.spacing.unit,
+    width: 200,
+  },
 };
 
 class CustomPipes extends React.Component {
@@ -44,7 +50,7 @@ class CustomPipes extends React.Component {
     };
   }
 
-  handleChange = (event) => {
+  handleChangeDropDown = (event) => {
     this.setState({ [event.target.name]: event.target.value });
   }
 
@@ -52,9 +58,19 @@ class CustomPipes extends React.Component {
     this.setState({ [name]: event.target.checked });
   }
 
+  handleChangeTextField = name => (event) => {
+    this.setState({
+      [name]: event.target.value,
+    });
+  };
+
   reCaptchaVerifyCallback = (response) => {
     this.setState({ gRecaptchaResponse: response });
-  };
+  }
+
+  validate = () => {
+    this.props.sendMail(this.state);
+  }
 
   render() {
     const { classes } = this.props;
@@ -65,11 +81,11 @@ class CustomPipes extends React.Component {
         <div className={classes.content}>
           <form className={classes.form} autoComplete="off">
             <h3>Pipe Order Details</h3>
-            <FormControl className={classes.formControl}>
+            <FormControl className={classes.formControl} required>
               <InputLabel htmlFor="length-simple">Pipe length</InputLabel>
               <Select
                 value={this.state.length}
-                onChange={this.handleChange}
+                onChange={this.handleChangeDropDown}
                 inputProps={{
                   name: 'length',
                   id: 'length-simple',
@@ -80,11 +96,11 @@ class CustomPipes extends React.Component {
                 <MenuItem value={'large'}>Large (18 - 28 inches)</MenuItem>
               </Select>
             </FormControl>
-            <FormControl className={classes.formControl}>
+            <FormControl className={classes.formControl} required>
               <InputLabel htmlFor="color-simple">Wood Bowl Color</InputLabel>
               <Select
                 value={this.state.color}
-                onChange={this.handleChange}
+                onChange={this.handleChangeDropDown}
                 inputProps={{
                   name: 'color',
                   id: 'color-simple',
@@ -117,6 +133,34 @@ class CustomPipes extends React.Component {
               />
               <br />
               <h3>Contact Info</h3>
+              <TextField
+                required
+                id="name"
+                label="Name"
+                className={classes.formControl}
+                value={this.state.name}
+                onChange={this.handleChangeTextField('name')}
+                margin="normal"
+              />
+              <TextField
+                required
+                id="email"
+                label="Email"
+                className={classes.formControl}
+                value={this.state.email}
+                onChange={this.handleChangeTextField('email')}
+                margin="normal"
+              />
+              <TextField
+                required
+                id="phoneNumber"
+                label="Phone Number"
+                className={classes.formControl}
+                value={this.state.phoneNumber}
+                onChange={this.handleChangeTextField('phoneNumber')}
+                margin="normal"
+              />
+              <br />
               <Recaptcha
                 sitekey="6Ld6Q3QUAAAAABUA1ung_ljZd4pfFzojpVRDMhd1"
                 verifyCallback={this.reCaptchaVerifyCallback}
@@ -124,7 +168,7 @@ class CustomPipes extends React.Component {
             </FormControl>
           </form>
           <br />
-          <Button variant="contained" className={classes.button} onClick={() => { this.props.sendMail(this.state); }}>
+          <Button variant="contained" className={classes.button} onClick={() => { this.validate(); }}>
             Submit
           </Button>
         </div>
@@ -134,8 +178,8 @@ class CustomPipes extends React.Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  sendMail: (formData) => {
-    dispatch(actions.sendMail(formData));
+  sendCustomOrderEmail: (formData) => {
+    dispatch(actions.sendCustomOrderEmail(formData));
   },
 });
 

@@ -6,14 +6,15 @@ export default (state = {}, action) => {
 
   switch (type) {
     case 'SET_CONFIG': {
-      const { url, service, data } = payload;
+      const { url, service, customOrderData, proShopOrderData } = payload;
       state2 = {
         service,
         adapter: axios.create({
           baseURL: url,
           responseType: 'json',
         }),
-        data,
+        proShopOrderData,
+        customOrderData,
       };
     }
       break;

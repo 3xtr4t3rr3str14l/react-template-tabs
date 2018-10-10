@@ -35,14 +35,17 @@ class App extends React.Component {
       service: {
         sendmail: '',
       },
-      data: {
+      customOrderData: {
         service_id: 'gmail',
         template_id: 'template_yYjE84ME',
         user_id: 'user_uoAncUIB4AD9NWyLIl8iJ',
-        template_params: {
-          username: 'James',
-          // 'g-recaptcha-response': '03AHJ_ASjnLA214KSNKFJAK12sfKASfehbmfd...',
-        },
+        template_params: {},
+      },
+      proShopOrderData: {
+        service_id: 'gmail',
+        template_id: 'pro_shop',
+        user_id: 'user_uoAncUIB4AD9NWyLIl8iJ',
+        template_params: {},
       },
     };
     this.props.setConfig(config);
