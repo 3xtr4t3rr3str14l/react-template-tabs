@@ -23,8 +23,8 @@ const styles = {
     backgroundImage: `url(${bambooFloor})`,
   },
   visibleView: {
-    paddingBottom: '30px',
-    paddingTop: '30px',
+    paddingBottom: '60px',
+    paddingTop: '60px',
   },
 };
 

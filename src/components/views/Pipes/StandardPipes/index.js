@@ -29,6 +29,7 @@ const styles = {
   imageGroup: {
     display: 'flex',
     paddingBottom: '40px',
+    justifyContent: 'center',
   },
 };
 

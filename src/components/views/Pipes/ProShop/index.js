@@ -13,16 +13,16 @@ const styles = {
   content: {
     margin: 'auto',
     width: '50%',
-    // display: 'grid',
   },
   button: {
-    // margin: theme.spacing.unit,
     marginTop: '10px',
   },
   formControl: {
-    // margin: theme.spacing.unit,
     minWidth: 120,
     paddingBottom: '40px',
+  },
+  reCaptcha: {
+    margin: 'auto',
   },
 };
 
@@ -94,10 +94,12 @@ class ProShop extends React.Component {
                 onChange={this.handleChangeTextField('phoneNumber')}
                 margin="normal"
               />
-              <Recaptcha
-                sitekey="6Ld6Q3QUAAAAABUA1ung_ljZd4pfFzojpVRDMhd1"
-                verifyCallback={this.reCaptchaVerifyCallback}
-              />
+              <div className={classes.reCaptcha}>
+                <Recaptcha
+                  sitekey="6Ld6Q3QUAAAAABUA1ung_ljZd4pfFzojpVRDMhd1"
+                  verifyCallback={this.reCaptchaVerifyCallback}
+                />
+              </div>
               <br />
               <Button variant="contained" className={classes.button} onClick={() => { this.validate(); }}>
                 Submit

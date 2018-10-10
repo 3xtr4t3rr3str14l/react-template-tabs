@@ -27,14 +27,14 @@ const styles = {
     paddingBottom: '40px',
   },
   formControl: {
-    // margin: theme.spacing.unit,
     minWidth: 120,
     paddingBottom: '40px',
   },
   textField: {
-    // marginLeft: theme.spacing.unit,
-    // marginRight: theme.spacing.unit,
     width: 200,
+  },
+  reCaptcha: {
+    margin: 'auto',
   },
 };
 
@@ -161,13 +161,14 @@ class CustomPipes extends React.Component {
                 margin="normal"
               />
               <br />
-              <Recaptcha
-                sitekey="6Ld6Q3QUAAAAABUA1ung_ljZd4pfFzojpVRDMhd1"
-                verifyCallback={this.reCaptchaVerifyCallback}
-              />
+              <div className={classes.reCaptcha}>
+                <Recaptcha
+                  sitekey="6Ld6Q3QUAAAAABUA1ung_ljZd4pfFzojpVRDMhd1"
+                  verifyCallback={this.reCaptchaVerifyCallback}
+                />
+              </div>
             </FormControl>
           </form>
-          <br />
           <Button variant="contained" className={classes.button} onClick={() => { this.validate(); }}>
             Submit
           </Button>

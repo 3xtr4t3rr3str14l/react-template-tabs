@@ -8,6 +8,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import actions from '../../actions';
 import hibiscus from '../../images/hibiscus.png';
 import darkBambooFloor from '../../images/darkBambooFloor.jpg';
+import fontFace from './index.css';
 
 const themeColor = '#fa8072';
 const styles = {
@@ -28,8 +29,8 @@ const styles = {
   titleText: {
     textAlign: 'center',
     color: themeColor,
-    fontFamily: 'ravie',
-    fontSize: '396%',
+    fontFamily: 'RavieFont',
+    fontSize: '400%',
     margin: 'auto',
     width: '50%',
   },
@@ -38,10 +39,29 @@ const styles = {
     height: '15%',
     padding: '15px',
   },
-  menu: {
+  tabs: {
     display: 'flex',
     justifyContent: 'center',
     color: 'white',
+    fontFamily: 'RavieFont',
+  },
+  tab: {
+    fontFamily: 'RavieFont',
+    fontSize: 'large',
+    color: themeColor,
+    opacity: '1',
+  },
+  menu: {
+    style: {
+      // backgroundColor: 'rgb(255, 255, 255, 0)',
+      backgroundImage: `url(${darkBambooFloor})`,
+    },
+  },
+  menuItem: {
+    // backgroundImage: `url(${darkBambooFloor})`,
+    fontFamily: 'RavieFont',
+    fontSize: 'large',
+    color: themeColor,
   },
 };
 
@@ -73,18 +93,21 @@ class MenuBar extends React.Component {
   render() {
     const { anchorEl } = this.state;
     return (
-      <Tabs style={styles.menu} >
+      <Tabs style={styles.tabs} >
         <Tab
+          style={styles.tab}
           label="Home"
           href="#"
           onClick={() => this.props.onClick('HOME')}
         />
         <Tab
+          style={styles.tab}
           label="About"
           href="#about"
           onClick={() => this.props.onClick('ABOUT')}
         />
         <Tab
+          style={styles.tab}
           label="Pipes"
           aria-owns={anchorEl ? 'simple-menu' : null}
           aria-haspopup="true"
@@ -99,8 +122,11 @@ class MenuBar extends React.Component {
           anchorEl={anchorEl}
           open={Boolean(anchorEl)}
           onClose={this.handleClose}
+          // style={styles.menu}
+          MenuListProps={styles.menu}
         >
           <MenuItem
+            style={styles.menuItem}
             href="#standardpipes"
             onClick={() => {
               this.handleClose();
@@ -109,6 +135,7 @@ class MenuBar extends React.Component {
           >Standard Pipes
           </MenuItem>
           <MenuItem
+            style={styles.menuItem}
             href="#custompipes"
             onClick={() => {
               this.handleClose();
@@ -117,6 +144,7 @@ class MenuBar extends React.Component {
           >Custom Pipes
           </MenuItem>
           <MenuItem
+            style={styles.menuItem}
             href="#proshop"
             onClick={() => {
               this.handleClose();
@@ -126,21 +154,25 @@ class MenuBar extends React.Component {
           </MenuItem>
         </Menu>
         <Tab
+          style={styles.tab}
           label="Swag"
           href="#swag"
           onClick={() => this.props.onClick('SWAG')}
         />
         <Tab
+          style={styles.tab}
           label="Contact"
           href="#contact"
           onClick={() => this.props.onClick('CONTACT')}
         />
         <Tab
+          style={styles.tab}
           label="Events"
           href="#events"
           onClick={() => this.props.onClick('EVENTS')}
         />
         <Tab
+          style={styles.tab}
           label="Gallery"
           href="#gallery"
           onClick={() => this.props.onClick('GALLERY')}
