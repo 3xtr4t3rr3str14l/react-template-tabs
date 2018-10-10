@@ -24,6 +24,7 @@ const styles = {
   },
   visibleView: {
     paddingBottom: '30px',
+    paddingTop: '30px',
   },
 };
 

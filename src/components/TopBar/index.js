@@ -7,21 +7,27 @@ import MenuItem from '@material-ui/core/MenuItem';
 
 import actions from '../../actions';
 import hibiscus from '../../images/hibiscus.png';
+import darkBambooFloor from '../../images/darkBambooFloor.jpg';
 
+const themeColor = '#fa8072';
 const styles = {
+  root: {
+    backgroundImage: `url(${darkBambooFloor})`,
+  },
   disclaimer: {
     fontSize: '10px',
     margin: 'auto',
     width: '50%',
     textAlign: 'center',
     paddingTop: '10px',
+    color: themeColor,
   },
   header: {
     display: 'inline-flex',
   },
   titleText: {
     textAlign: 'center',
-    color: '#fa8072',
+    color: themeColor,
     fontFamily: 'ravie',
     fontSize: '396%',
     margin: 'auto',
@@ -33,9 +39,9 @@ const styles = {
     padding: '15px',
   },
   menu: {
-    paddingBottom: '33px',
     display: 'flex',
     justifyContent: 'center',
+    color: 'white',
   },
 };
 
@@ -145,7 +151,7 @@ class MenuBar extends React.Component {
 }
 
 const TopBar = props => (
-  <div>
+  <div style={styles.root}>
     {Header(props)}
     {<MenuBar onClick={props.onClick} />}
   </div>
