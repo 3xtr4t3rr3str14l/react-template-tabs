@@ -22,31 +22,20 @@ const styles = theme => ({
     width: 500,
     height: 450,
   },
-  dialogGridList: {
-    flexWrap: 'nowrap',
-    // Promote the list into his own layer on Chrome. This cost memory but helps keeping high FPS.
-    transform: 'translateZ(0)',
-    // maxWidth: 'none',
-    // maxHeight: 'none',
-    // width: '100%',
-    // height: 'auto',
-  },
-  dialogGridListTile: {
-    // width: '100%',
-    // height: '100%',
-    // maxWidth: '100%',
-    // maxHeight: '100%',
-  },
   icon: {
     color: 'rgba(255, 255, 255, 0.54)',
+  },
+  grid: {
+    flexWrap: 'nowrap',
+    display: 'flex',
   },
 });
 
 const tileData = [
-  {
-    img: hib,
-    title: 'Hibiscus',
-  },
+  // {
+  //   img: hib,
+  //   title: 'Hibiscus',
+  // },
   {
     img: image,
     title: 'Fishing Pipe',
@@ -92,17 +81,18 @@ class Gallery extends React.Component {
 
   render() {
     const { classes } = this.props;
+    const paper = {
+      style: { backgroundColor: 'rgb(255, 255, 255, 0)' },
+    };
 
     return (
       <ContentCard title="Gallery">
-        <Dialog fullWidth maxWidth="100%" open={this.state.open} onClose={this.handleClose}>
-          <GridList className={classes.dialogGridList} cols={1}>
+        <Dialog maxWidth="100%" open={this.state.open} onClose={this.handleClose} PaperProps={paper}>
+          <div className={classes.grid}>
             {tileData.map(tile => (
-              <GridListTile key={tile.img} className={classes.dialogGridListTile}>
-                <img src={tile.img} alt={tile.title} />
-              </GridListTile>
+              <img src={tile.img} alt={tile.title} style={{ height: '100%', width: 'auto' }} />
             ))}
-          </GridList>
+          </div>
         </Dialog>
         <div className={classes.content}>
           <GridList cellHeight={180} className={classes.gridList}>

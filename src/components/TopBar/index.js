@@ -93,7 +93,7 @@ class MenuBar extends React.Component {
   render() {
     const { anchorEl } = this.state;
     return (
-      <Tabs style={styles.tabs} scrollable>
+      <Tabs style={styles.tabs}>
         <Tab
           style={styles.tab}
           label="Home"
