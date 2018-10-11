@@ -40,7 +40,7 @@ const styles = {
     padding: '15px',
   },
   tabs: {
-    // display: 'flex',
+    display: 'flex',
     justifyContent: 'center',
     color: 'white',
     fontFamily: 'RavieFont',
