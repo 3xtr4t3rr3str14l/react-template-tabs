@@ -19,7 +19,7 @@ const styles = theme => ({
     overflow: 'hidden',
   },
   gridList: {
-    // width: 500,
+    width: 500,
     height: 450,
   },
   dialogGridList: {
@@ -28,14 +28,14 @@ const styles = theme => ({
     transform: 'translateZ(0)',
     // maxWidth: 'none',
     // maxHeight: 'none',
-    width: 'inherit',
+    // width: '100%',
     // height: 'auto',
   },
   dialogGridListTile: {
-    width: 'inherit',
-    height: 'auto',
-    // maxWidth: 'none',
-    // maxHeight: 'none',
+    // width: '100%',
+    // height: '100%',
+    // maxWidth: '100%',
+    // maxHeight: '100%',
   },
   icon: {
     color: 'rgba(255, 255, 255, 0.54)',
@@ -95,8 +95,8 @@ class Gallery extends React.Component {
 
     return (
       <ContentCard title="Gallery">
-        <Dialog fullWidth maxWidth="false" open={this.state.open} onClose={this.handleClose}>
-          <GridList className={classes.dialogGridList} cellHeight="auto" spacing="2">
+        <Dialog fullWidth maxWidth="100%" open={this.state.open} onClose={this.handleClose}>
+          <GridList className={classes.dialogGridList} cols={1}>
             {tileData.map(tile => (
               <GridListTile key={tile.img} className={classes.dialogGridListTile}>
                 <img src={tile.img} alt={tile.title} />

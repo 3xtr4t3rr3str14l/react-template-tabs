@@ -16,11 +16,16 @@ const styles = {
     paddingTop: '20px',
     paddingBottom: '20px',
     minHeight: '100%',
+    width: 'fit-content',
   },
   content: {
     margin: 'auto',
-    width: '81%',
+    width: 'fit-content',
     backgroundImage: `url(${bambooFloor})`,
+    marginTop: '30px',
+    marginBottom: '30px',
+    marginLeft: '30px',
+    marginRight: '30px',
   },
   visibleView: {
     paddingBottom: '60px',

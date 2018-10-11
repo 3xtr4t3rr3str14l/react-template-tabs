@@ -27,19 +27,26 @@ const tileData = [
 
 const styles = theme => ({
   content: {
-    display: 'flex',
-    flexWrap: 'wrap',
+    // display: 'flex',
+    // flexWrap: 'wrap',
     justifyContent: 'space-around',
-    overflow: 'hidden',
+    // overflow: 'hidden',
+    margin: 'auto',
+    width: '50%',
   },
   gridList: {
     flexWrap: 'nowrap',
     // Promote the list into his own layer on Chrome. This cost memory but helps keeping high FPS.
     transform: 'translateZ(0)',
+    // width: 'fit-content',
   },
   titleBar: {
     background:
       'linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)',
+  },
+  dialogGridListTile: {
+    // width: 'inherit',
+    // height: 'auto',
   },
 });
 
@@ -51,7 +58,7 @@ const Home = (props) => {
       <div className={classes.content}>
         <GridList className={classes.gridList} cols={2.5}>
           {tileData.map(tile => (
-            <GridListTile key={tile.img}>
+            <GridListTile key={tile.img} className={classes.dialogGridListTile}>
               <img src={tile.img} alt={tile.title} />
               <GridListTileBar
                 title={tile.title}

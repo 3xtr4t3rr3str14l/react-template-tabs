@@ -40,7 +40,7 @@ const styles = {
     padding: '15px',
   },
   tabs: {
-    display: 'flex',
+    // display: 'flex',
     justifyContent: 'center',
     color: 'white',
     fontFamily: 'RavieFont',
@@ -93,7 +93,7 @@ class MenuBar extends React.Component {
   render() {
     const { anchorEl } = this.state;
     return (
-      <Tabs style={styles.tabs} >
+      <Tabs style={styles.tabs} scrollable>
         <Tab
           style={styles.tab}
           label="Home"
