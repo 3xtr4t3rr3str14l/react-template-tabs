@@ -7,22 +7,23 @@ import { withStyles } from '@material-ui/core/styles';
 // import StarBorderIcon from '@material-ui/icons/StarBorder';
 
 import ContentCard from '../../ContentCard';
-import image from '../../../images/hibiscus.png';
+import image from '../../../images/fishingBong.jpg';
+import hib from '../../../images/hibiscus.png';
 
 const tileData = [
   {
     img: image,
-    title: 'Image',
+    title: 'Fishing Pipe',
     author: 'author',
   },
   {
     img: image,
-    title: 'Image',
+    title: 'Fishing Pipe',
     author: 'author',
   },
   {
     img: image,
-    title: 'Image',
+    title: 'Fishing Pipe',
     author: 'author',
   },
 ];

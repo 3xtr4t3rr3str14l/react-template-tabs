@@ -8,7 +8,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import actions from '../../actions';
 import hibiscus from '../../images/hibiscus.png';
 import darkBambooFloor from '../../images/darkBambooFloor.jpg';
-import fontFace from './index.css';
+import './index.css';
 
 const themeColor = '#fa8072';
 const styles = {
@@ -30,9 +30,9 @@ const styles = {
     textAlign: 'center',
     color: themeColor,
     fontFamily: 'RavieFont',
-    fontSize: '400%',
+    fontSize: '300%',
     margin: 'auto',
-    width: '50%',
+    // width: '50%',
   },
   hibiscus: {
     width: '15%',
@@ -70,7 +70,7 @@ const Header = props => (
     <div style={styles.disclaimer}>Bamboo Tobacco Bongs are Intended for Tobacco use only</div>
     <div style={styles.header} onClick={() => props.onClick('HOME')} role="button" tabIndex={0}>
       <img src={hibiscus} alt="Hibiscus Flower" style={styles.hibiscus} />
-      <div style={styles.titleText}>Pooka Bongs</div>
+      <div style={styles.titleText}>The Pooka Air Bong</div>
       <img src={hibiscus} alt="Hibiscus Flower" style={styles.hibiscus} />
     </div>
   </div>

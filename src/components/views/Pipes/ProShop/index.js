@@ -67,6 +67,7 @@ class ProShop extends React.Component {
                 margin="normal"
                 variant="outlined"
               />
+              <h3>Contact Info</h3>
               <TextField
                 required
                 id="name"

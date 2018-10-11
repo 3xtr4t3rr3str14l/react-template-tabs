@@ -8,7 +8,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 
 import ContentCard from '../../ContentCard';
-import image from '../../../images/hibiscus.png';
+import image from '../../../images/fishingBong.jpg';
 
 const styles = {
   imageCard: {
