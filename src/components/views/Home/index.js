@@ -14,17 +14,14 @@ const tileData = [
   {
     img: image,
     title: 'Fishing Pipe',
-    author: 'author',
   },
   {
     img: image,
     title: 'Fishing Pipe',
-    author: 'author',
   },
   {
     img: image,
     title: 'Fishing Pipe',
-    author: 'author',
   },
 ];
 

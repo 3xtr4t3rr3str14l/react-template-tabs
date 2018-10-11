@@ -69,7 +69,7 @@ class CustomPipes extends React.Component {
   }
 
   validate = () => {
-    this.props.sendMail(this.state);
+    this.props.sendCustomOrderEmail(this.state);
   }
 
   render() {
