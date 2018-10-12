@@ -15,5 +15,8 @@ const overwrites = {
   //   accent3Color: '#ff5722',
   //   canvasColor: '#212121',
   },
+  typography: {
+    fontFamily: 'RavieFont',
+  },
 };
 export default createMuiTheme({ overwrites });

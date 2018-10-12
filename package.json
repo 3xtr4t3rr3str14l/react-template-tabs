@@ -39,6 +39,8 @@
     "react-redux": "^5.0.7",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
+    "react-swipeable-views": "^0.13.0",
+    "react-swipeable-views-utils": "^0.13.0",
     "react-transition-group": "^1.2.1",
     "reactstrap": "^4.8.0",
     "redux": "^3.7.2",
@@ -105,7 +107,8 @@
     ]
   },
   "devDependencies": {
-    "@material-ui/core": "^3.1.2",
+    "@material-ui/core": "^3.2.0",
+    "@material-ui/icons": "^3.0.1",
     "chai": "^4.2.0",
     "enzyme": "^2.9.1",
     "eslint": "^4.19.1",
@@ -125,6 +128,7 @@
     "sass-loader": "^6.0.7",
     "selenium-standalone": "^6.15.3",
     "uuid": "^3.3.2",
+    "validator": "^10.8.0",
     "webdriverio": "^4.13.2"
   },
   "eslintConfig": {

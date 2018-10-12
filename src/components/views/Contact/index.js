@@ -4,10 +4,14 @@ import Typography from '@material-ui/core/Typography';
 import ContentCard from '../../ContentCard';
 import fbLogo from '../../../images/fbLogo.png';
 import twitterLogo from '../../../images/twitterLogo.png';
+import phoneIcon from '../../../images/phoneIcon.png';
+import emailIcon from '../../../images/emailIcon.png';
 
 const styles = {
   icon: {
     size: '20px',
+    marginLeft: '20px',
+    marginRight: '20px',
   },
 };
 
@@ -18,10 +22,12 @@ const Contact = (props) => {
   return (
     <ContentCard title="Contact">
       <Typography component="p">
-        <a href="mailto:wjm3@cawb.com">wjm3@cawb.com</a><br /><br />
-        <a href="tel:469-863-6271">469-863-6271</a><br /><br />
-        <a href="https://www.facebook.com/theoriginalpookaairbong/"><img className={classes.icon} height={iconSize} width={iconSize} src={fbLogo} alt="Facebook Logo" /></a><br /><br />
-        <a href=""><img className={classes.icon} height={iconSize} width={iconSize} src={twitterLogo} alt="Twitter Logo" /></a><br /><br />
+        <p>Contact us through email, phone, Facebook or Twitter</p>
+        <br />
+        <a href="mailto:wjm3@cawb.com"><img className={classes.icon} height={iconSize} width={iconSize} src={emailIcon} alt="Email Icon" /></a>
+        <a href="tel:469-863-6271"><img className={classes.icon} height={iconSize} width={iconSize} src={phoneIcon} alt="Phone Icon" /></a>
+        <a href="https://www.facebook.com/theoriginalpookaairbong/"><img className={classes.icon} height={iconSize} width={iconSize} src={fbLogo} alt="Facebook Logo" /></a>
+        <a href=""><img className={classes.icon} height={iconSize} width={iconSize} src={twitterLogo} alt="Twitter Logo" /></a>
       </Typography>
     </ContentCard>
   );

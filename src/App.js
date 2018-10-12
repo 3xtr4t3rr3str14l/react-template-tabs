@@ -5,7 +5,7 @@ import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 
 import MyMuiTheme from './MuiTheme';
 import VisibleView from './containers/VisibleView';
-import actions from './actions';
+import { setConfig } from './actions';
 import TopBar from './components/TopBar';
 import greenBamboo from './images/greenBamboo.jpg';
 import bambooFloor from './images/bambooFloor.jpg';
@@ -13,7 +13,7 @@ import bambooFloor from './images/bambooFloor.jpg';
 const styles = {
   background: {
     backgroundImage: `url(${greenBamboo})`,
-    paddingTop: '20px',
+    paddingTop: '5px',
     paddingBottom: '20px',
     minHeight: '100%',
     width: 'fit-content',
@@ -22,7 +22,9 @@ const styles = {
     margin: 'auto',
     width: 'fit-content',
     backgroundImage: `url(${bambooFloor})`,
-    marginTop: '30px',
+    backgroundRepeat: 'round',
+    boxShadow: '0px 12px 13px 10px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12)',
+    marginTop: '0px',
     marginBottom: '30px',
     marginLeft: '30px',
     marginRight: '30px',
@@ -79,7 +81,7 @@ App.propTypes = {
 
 const mapDispatchToProps = dispatch => ({
   setConfig: (config) => {
-    dispatch(actions.setConfig(config));
+    dispatch(setConfig(config));
   },
 });
 

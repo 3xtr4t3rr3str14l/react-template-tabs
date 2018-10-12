@@ -14,7 +14,8 @@ import TextField from '@material-ui/core/TextField';
 import Recaptcha from 'react-recaptcha';
 
 import ContentCard from '../../../ContentCard';
-import actions from '../../../../actions';
+import { sendCustomOrderEmail } from '../../../../actions';
+import { isValidCustomOrder } from '../../../../validation';
 
 const styles = {
   content: {
@@ -42,8 +43,8 @@ class CustomPipes extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      length: '',
-      color: '',
+      length: undefined,
+      color: undefined,
       raw: false,
       naturalstain: false,
       clearcoat: false,
@@ -69,7 +70,9 @@ class CustomPipes extends React.Component {
   }
 
   validate = () => {
-    this.props.sendCustomOrderEmail(this.state);
+    if (isValidCustomOrder(this.state)) {
+      this.props.sendCustomOrderEmail(this.state);
+    }
   }
 
   render() {
@@ -180,7 +183,7 @@ class CustomPipes extends React.Component {
 
 const mapDispatchToProps = dispatch => ({
   sendCustomOrderEmail: (formData) => {
-    dispatch(actions.sendCustomOrderEmail(formData));
+    dispatch(sendCustomOrderEmail(formData));
   },
 });
 

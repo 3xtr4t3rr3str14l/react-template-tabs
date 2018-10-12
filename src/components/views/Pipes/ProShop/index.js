@@ -5,9 +5,11 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Recaptcha from 'react-recaptcha';
 import FormControl from '@material-ui/core/FormControl';
+import Typography from '@material-ui/core/Typography';
 
 import ContentCard from '../../../ContentCard';
-import actions from '../../../../actions';
+import { sendProShopOrderEmail } from '../../../../actions';
+import { isValidProShopOrder } from '../../../../validation';
 
 const styles = {
   content: {
@@ -43,7 +45,9 @@ class ProShop extends React.Component {
   }
 
   validate = () => {
-    this.props.sendProShopOrderEmail(this.state);
+    if (isValidProShopOrder(this.state)) {
+      this.props.sendProShopOrderEmail(this.state);
+    }
   }
 
   render() {
@@ -53,8 +57,10 @@ class ProShop extends React.Component {
       <ContentCard title="Pro Shop">
         <form className={classes.form} autoComplete="off">
           <div className={classes.content}>
-            <h4>This is the Pro Shop.  Tell us what you want your pipe to look like below.
-             Anything goes!</h4>
+            <Typography>
+              <h4>This is the Pro Shop.  Tell us what you want your pipe to look like below.
+               Anything goes!</h4>
+            </Typography>
             <FormControl className={classes.formControl} required>
               <TextField
                 id="details"
@@ -115,7 +121,7 @@ class ProShop extends React.Component {
 
 const mapDispatchToProps = dispatch => ({
   sendProShopOrderEmail: (formData) => {
-    dispatch(actions.sendProShopOrderEmail(formData));
+    dispatch(sendProShopOrderEmail(formData));
   },
 });
 

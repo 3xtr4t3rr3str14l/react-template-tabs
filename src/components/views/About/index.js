@@ -6,18 +6,16 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
+import ImageCard from '../../ImageCard';
 
 import ContentCard from '../../ContentCard';
-import image from '../../../images/fishingBong.jpg';
+import moonMan from '../../../images/moonMan.jpg';
 
 const styles = {
-  imageCard: {
-    // maxWidth: '345px',
-    margin: 'auto',
-    width: '50%',
-  },
-  media: {
-    height: 140,
+  imageGroup: {
+    display: 'flex',
+    paddingBottom: '40px',
+    justifyContent: 'center',
   },
 };
 
@@ -26,23 +24,15 @@ const About = (props) => {
 
   return (
     <ContentCard title="About">
-      <Card className={classes.imageCard}>
-        <div>
-          <CardMedia
-            className={classes.media}
-            image={image}
-            title="Badass Pipe"
-          />
-          <CardContent>
-            <Typography gutterBottom variant="headline" component="h2">
-              The Pooka Air Bong
-            </Typography>
-            <Typography component="p">
-              Bamboo grown in Texas, painted by DFW musicians and visual artists.
-            </Typography>
-          </CardContent>
-        </div>
-      </Card>
+      <div className={classes.imageGroup}>
+        <ImageCard
+          height={350}
+          width={550}
+          title="The Pooka Air Bong"
+          subtitle="Bamboo grown in Texas, painted by DFW musicians and visual artists."
+          image={moonMan}
+        />
+      </div>
     </ContentCard>
   );
 };

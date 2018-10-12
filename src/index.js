@@ -14,6 +14,7 @@ import './index.scss';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 // import { getRoutes } from './routes';
+import './index.css';
 
 const store = createStore(WebPortalApp, applyMiddleware(thunkMiddleware));
 

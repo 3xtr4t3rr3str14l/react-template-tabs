@@ -5,7 +5,7 @@ import Tab from '@material-ui/core/Tab';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 
-import actions from '../../actions';
+import { setVisibilityFilter } from '../../actions';
 import hibiscus from '../../images/hibiscus.png';
 import darkBambooFloor from '../../images/darkBambooFloor.jpg';
 import './index.css';
@@ -14,6 +14,7 @@ const themeColor = '#fa8072';
 const styles = {
   root: {
     backgroundImage: `url(${darkBambooFloor})`,
+    backgroundRepeat: 'round',
   },
   disclaimer: {
     fontSize: '10px',
@@ -53,12 +54,11 @@ const styles = {
   },
   menu: {
     style: {
-      // backgroundColor: 'rgb(255, 255, 255, 0)',
       backgroundImage: `url(${darkBambooFloor})`,
+      backgroundRepeat: 'round',
     },
   },
   menuItem: {
-    // backgroundImage: `url(${darkBambooFloor})`,
     fontFamily: 'RavieFont',
     fontSize: 'large',
     color: themeColor,
@@ -70,7 +70,7 @@ const Header = props => (
     <div style={styles.disclaimer}>Bamboo Tobacco Bongs are Intended for Tobacco use only</div>
     <div style={styles.header} onClick={() => props.onClick('HOME')} role="button" tabIndex={0}>
       <img src={hibiscus} alt="Hibiscus Flower" style={styles.hibiscus} />
-      <div style={styles.titleText}>The Pooka Air Bong</div>
+      <div style={styles.titleText}>The Original Pooka Air Bong</div>
       <img src={hibiscus} alt="Hibiscus Flower" style={styles.hibiscus} />
     </div>
   </div>
@@ -191,7 +191,7 @@ const TopBar = props => (
 
 const mapDispatchToProps = dispatch => ({
   onClick: (filter) => {
-    dispatch(actions.setVisibilityFilter(filter));
+    dispatch(setVisibilityFilter(filter));
   },
 });
 

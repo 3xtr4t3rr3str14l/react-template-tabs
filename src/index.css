@@ -1,9 +1,15 @@
 @import url('https://fonts.googleapis.com/css?family=Lato');
 
+@font-face {
+  font-family: RavieFont;
+  src: url(./images/ravie.ttf);
+  font-weight: bold;
+}
+
 :global body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: RavieFont;
 }
 
 :global .navbar a.active {

@@ -8,8 +8,80 @@ import Dialog from '@material-ui/core/Dialog';
 import { withStyles } from '@material-ui/core/styles';
 
 import ContentCard from '../../ContentCard';
-import image from '../../../images/fishingBong.jpg';
-import hib from '../../../images/hibiscus.png';
+
+import hibiscus from '../../../images/hibiscus.png';
+import fishingPipe from '../../../images/fishingPipe.jpg';
+import bambooFloor from '../../../images/bambooFloor.jpg';
+import darkBambooFloor from '../../../images/darkBambooFloor.jpg';
+import emailIcon from '../../../images/emailIcon.png';
+import fbLogo from '../../../images/fbLogo.png';
+import greenBamboo from '../../../images/greenBamboo.jpg';
+import moonMan from '../../../images/moonMan.jpg';
+import phoneIcon from '../../../images/phoneIcon.png';
+import stockAccesssories from '../../../images/stockAccessories.jpeg';
+import stockhat from '../../../images/stockHat.jpeg';
+import stockJewelry from '../../../images/stockJewelry.jpeg';
+import stockShirt from '../../../images/stockShirt.jpeg';
+import twitterLogo from '../../../images/twitterLogo.png';
+
+const tileData = [
+  {
+    img: fishingPipe,
+    title: 'Fishing Pipe',
+  },
+  {
+    img: hibiscus,
+    title: 'Hibiscus',
+  },
+  {
+    img: bambooFloor,
+    title: 'Bamboo Floor',
+  },
+  {
+    img: darkBambooFloor,
+    title: 'Dark Bamboo Floor',
+  },
+  {
+    img: emailIcon,
+    title: 'emailIcon',
+  },
+  {
+    img: fbLogo,
+    title: 'fbLogo',
+  },
+  {
+    img: greenBamboo,
+    title: 'greenBamboo',
+  },
+  {
+    img: moonMan,
+    title: 'moonMan',
+  },
+  {
+    img: twitterLogo,
+    title: 'twitterLogo',
+  },
+  {
+    img: stockShirt,
+    title: 'stockShirt',
+  },
+  {
+    img: stockJewelry,
+    title: 'stockJewelry',
+  },
+  {
+    img: stockhat,
+    title: 'stockhat',
+  },
+  {
+    img: stockAccesssories,
+    title: 'stockAccesssories',
+  },
+  {
+    img: phoneIcon,
+    title: 'phoneIcon',
+  },
+];
 
 const styles = theme => ({
   content: {
@@ -19,8 +91,8 @@ const styles = theme => ({
     overflow: 'hidden',
   },
   gridList: {
-    width: 500,
-    height: 450,
+    maxWidth: 500,
+    maxHeight: 450,
   },
   icon: {
     color: 'rgba(255, 255, 255, 0.54)',
@@ -30,33 +102,6 @@ const styles = theme => ({
     display: 'flex',
   },
 });
-
-const tileData = [
-  // {
-  //   img: hib,
-  //   title: 'Hibiscus',
-  // },
-  {
-    img: image,
-    title: 'Fishing Pipe',
-  },
-  {
-    img: hib,
-    title: 'Hibiscus',
-  },
-  {
-    img: image,
-    title: 'Fishing Pipe',
-  },
-  {
-    img: hib,
-    title: 'Hibiscus',
-  },
-  {
-    img: hib,
-    title: 'Hibiscus',
-  },
-];
 
 // const Gallery = (props) => {
 class Gallery extends React.Component {
@@ -90,7 +135,7 @@ class Gallery extends React.Component {
         <Dialog maxWidth="100%" open={this.state.open} onClose={this.handleClose} PaperProps={paper}>
           <div className={classes.grid}>
             {tileData.map(tile => (
-              <img src={tile.img} alt={tile.title} style={{ height: '100%', width: 'auto' }} />
+              <img src={tile.img} alt={tile.title} style={{ height: 'fit-content', width: 'fit-content', maxHeight: '500px', maxWidth: '500px' }} />
             ))}
           </div>
         </Dialog>
