@@ -31,9 +31,6 @@ const styles = {
     minWidth: 120,
     paddingBottom: '40px',
   },
-  textField: {
-    width: 200,
-  },
   reCaptcha: {
     margin: 'auto',
   },

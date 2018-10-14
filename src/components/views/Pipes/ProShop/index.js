@@ -15,6 +15,7 @@ const styles = {
   content: {
     margin: 'auto',
     width: '50%',
+    display: 'grid',
   },
   button: {
     marginTop: '10px',
@@ -66,7 +67,7 @@ class ProShop extends React.Component {
                 id="details"
                 label="Pipe Description"
                 multiline
-                rows="4"
+                rows="10"
                 className={classes.formControl}
                 value={this.state.details}
                 onChange={this.handleChangeTextField('details')}
