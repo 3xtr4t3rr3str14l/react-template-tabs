@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Home from '../components/views/Home';
 import About from '../components/views/About';
-// import Pipes from '../components/views/Pipes';
 import StandardPipes from '../components/views/Pipes/StandardPipes';
 import CustomPipes from '../components/views/Pipes/CustomPipes';
 import ProShop from '../components/views/Pipes/ProShop';

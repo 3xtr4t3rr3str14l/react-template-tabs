@@ -165,7 +165,7 @@ class CustomPipes extends React.Component {
               <br />
               <div className={classes.reCaptcha}>
                 <Recaptcha
-                  sitekey="6LcdZnUUAAAAADBRARnedefMuqhUD5q7SsD1Ssti"
+                  sitekey="6Ld6Q3QUAAAAABUA1ung_ljZd4pfFzojpVRDMhd1"
                   verifyCallback={this.reCaptchaVerifyCallback}
                 />
               </div>

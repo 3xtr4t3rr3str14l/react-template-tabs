@@ -23,7 +23,7 @@ export const sendProShopOrderEmail = formData => (dispatch, getState) => {
   proShopOrderData.template_params.phoneNumber = formData.phoneNumber;
 
   adapter.post(sendmail, proShopOrderData)
-    .then((response) => { successMessage('Your Pro Shop order is sent!'); })
+    .then((response) => { successMessage('Your Pro Shop order has been sent!'); })
     .catch((error) => {
       errorMessage(`Error: ${error.response.data ? error.response.data.error : 'Unknown error'}`);
     });
@@ -43,7 +43,7 @@ export const sendCustomOrderEmail = formData => (dispatch, getState) => {
   customOrderData.template_params.phoneNumber = formData.phoneNumber;
 
   adapter.post(sendmail, customOrderData)
-    .then((response) => { successMessage('Your Custom order is sent!'); })
+    .then((response) => { successMessage('Your Custom order has been sent!'); })
     .catch((error) => {
       errorMessage(`Error: ${error.response.data ? error.response.data.error : 'Unknown error'}`);
     });
