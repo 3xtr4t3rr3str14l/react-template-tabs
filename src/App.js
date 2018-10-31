@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 
 import MyMuiTheme from './MuiTheme';
-import VisibleView from './containers/VisibleView';
 import { setConfig } from './actions';
 import TopBar from './components/TopBar';
 import rainbowBamboo from './images/rainbowBamboo.jpg';
