@@ -21,6 +21,8 @@ const styles = {
   content: {
     margin: 'auto',
     width: '50%',
+    background: 'rgba(207, 164, 87, 0.81)',
+    padding: '20px',
   },
   form: {
     display: 'grid',
@@ -163,7 +165,7 @@ class CustomPipes extends React.Component {
               <br />
               <div className={classes.reCaptcha}>
                 <Recaptcha
-                  sitekey="6Ld6Q3QUAAAAABUA1ung_ljZd4pfFzojpVRDMhd1"
+                  sitekey="6LcdZnUUAAAAADBRARnedefMuqhUD5q7SsD1Ssti"
                   verifyCallback={this.reCaptchaVerifyCallback}
                 />
               </div>

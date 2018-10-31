@@ -16,6 +16,8 @@ const styles = {
     margin: 'auto',
     width: '50%',
     display: 'grid',
+    background: 'rgba(207, 164, 87, 0.81)',
+    padding: '20px',
   },
   button: {
     marginTop: '10px',
@@ -64,6 +66,7 @@ class ProShop extends React.Component {
             </Typography>
             <FormControl className={classes.formControl} required>
               <TextField
+                required
                 id="details"
                 label="Pipe Description"
                 multiline
@@ -102,6 +105,7 @@ class ProShop extends React.Component {
                 onChange={this.handleChangeTextField('phoneNumber')}
                 margin="normal"
               />
+              <div>* = Required</div><br />
               <div className={classes.reCaptcha}>
                 <Recaptcha
                   sitekey="6Ld6Q3QUAAAAABUA1ung_ljZd4pfFzojpVRDMhd1"

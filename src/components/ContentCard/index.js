@@ -6,7 +6,7 @@ const styles = {
   mainCard: {
     margin: 'auto',
     width: '85%',
-    background: 'rgb(255, 255, 255, 0.4)',
+    background: 'rgb(255, 255, 255, 0.6)',
     textAlign: 'center',
     paddingBottom: '40px',
     fontFamily: 'RavieFont',

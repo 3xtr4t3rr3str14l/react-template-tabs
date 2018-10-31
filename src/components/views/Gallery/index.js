@@ -8,91 +8,21 @@ import Dialog from '@material-ui/core/Dialog';
 import { withStyles } from '@material-ui/core/styles';
 
 import ContentCard from '../../ContentCard';
+import imageCollection from '../../../imageCollection';
+import ImageCarousel from '../../ImageCarousel';
 
-import hibiscus from '../../../images/hibiscus.png';
-import fishingPipe from '../../../images/fishingPipe.jpg';
-import bambooFloor from '../../../images/bambooFloor.jpg';
-import darkBambooFloor from '../../../images/darkBambooFloor.jpg';
-import emailIcon from '../../../images/emailIcon.png';
-import fbLogo from '../../../images/fbLogo.png';
-import greenBamboo from '../../../images/greenBamboo.jpg';
-import moonMan from '../../../images/moonMan.jpg';
-import phoneIcon from '../../../images/phoneIcon.png';
-import stockAccesssories from '../../../images/stockAccessories.jpeg';
-import stockhat from '../../../images/stockHat.jpeg';
-import stockJewelry from '../../../images/stockJewelry.jpeg';
-import stockShirt from '../../../images/stockShirt.jpeg';
-import twitterLogo from '../../../images/twitterLogo.png';
-
-const tileData = [
-  {
-    img: fishingPipe,
-    title: 'Fishing Pipe',
-  },
-  {
-    img: hibiscus,
-    title: 'Hibiscus',
-  },
-  {
-    img: bambooFloor,
-    title: 'Bamboo Floor',
-  },
-  {
-    img: darkBambooFloor,
-    title: 'Dark Bamboo Floor',
-  },
-  {
-    img: emailIcon,
-    title: 'emailIcon',
-  },
-  {
-    img: fbLogo,
-    title: 'fbLogo',
-  },
-  {
-    img: greenBamboo,
-    title: 'greenBamboo',
-  },
-  {
-    img: moonMan,
-    title: 'moonMan',
-  },
-  {
-    img: twitterLogo,
-    title: 'twitterLogo',
-  },
-  {
-    img: stockShirt,
-    title: 'stockShirt',
-  },
-  {
-    img: stockJewelry,
-    title: 'stockJewelry',
-  },
-  {
-    img: stockhat,
-    title: 'stockhat',
-  },
-  {
-    img: stockAccesssories,
-    title: 'stockAccesssories',
-  },
-  {
-    img: phoneIcon,
-    title: 'phoneIcon',
-  },
-];
-
+const setWidth = 400;
 const styles = theme => ({
   content: {
-    display: 'flex',
     flexWrap: 'wrap',
     justifyContent: 'space-around',
-    overflow: 'hidden',
+    overflowX: 'scroll',
+    margin: '20px',
   },
   gridList: {
     maxWidth: 500,
     maxHeight: 450,
+    flexWrap: 'nowrap',
   },
   icon: {
     color: 'rgba(255, 255, 255, 0.54)',
@@ -100,10 +30,21 @@ const styles = theme => ({
   grid: {
     flexWrap: 'nowrap',
     display: 'flex',
+    maxWidth: setWidth,
+  },
+  img: {
+    height: 300,
+    maxWidth: setWidth,
+    width: '100%',
+  },
+  bigImg: {
+    height: 'fit-content',
+    width: 'fit-content',
+    maxHeight: '500px',
+    maxWidth: '500px',
   },
 });
 
-// const Gallery = (props) => {
 class Gallery extends React.Component {
   constructor(props) {
     super(props);
@@ -113,53 +54,50 @@ class Gallery extends React.Component {
   }
 
   handleClose = (value) => {
+    console.log('closing');
     this.setState({
       open: false,
     });
   };
 
-  handleListItemClick = () => {
+  handleListItemClick = (selectedImageId) => {
+    console.log('opening');
     this.setState({
       open: true,
+      selectedImageId,
     });
   };
 
   render() {
     const { classes } = this.props;
     const paper = {
-      style: { backgroundColor: 'rgb(255, 255, 255, 0)' },
+      style: { backgroundColor: 'rgb(255, 255, 255, 0.5)', maxWidth: '85%' },
     };
 
     return (
       <ContentCard title="Gallery">
-        <Dialog maxWidth="100%" open={this.state.open} onClose={this.handleClose} PaperProps={paper}>
-          <div className={classes.grid}>
-            {tileData.map(tile => (
-              <img src={tile.img} alt={tile.title} style={{ height: 'fit-content', width: 'fit-content', maxHeight: '500px', maxWidth: '500px' }} />
-            ))}
-          </div>
+        <Dialog open={this.state.open} onClose={this.handleClose} PaperProps={paper} scroll="body">
+          <ImageCarousel
+            initialStep={this.state.selectedImageId}
+            overflowX="hidden"
+            contentStyle={{ width: '100%' }}
+            imageStyle={{
+              height: 'fit-content',
+              width: 'fit-content',
+            }}
+          />
         </Dialog>
         <div className={classes.content}>
-          <GridList cellHeight={180} className={classes.gridList}>
-            <GridListTile key="Subheader" cols={2} style={{ height: 'auto' }}>
-              <ListSubheader component="div">Picture Gallery 1</ListSubheader>
-            </GridListTile>
-            {tileData.map(tile => (
-              <GridListTile key={tile.img}>
-                <img src={tile.img} alt={tile.title} />
-                <GridListTileBar
-                  title={tile.title}
-                  actionIcon={
-                    <IconButton className={classes.icon} onClick={this.handleListItemClick}>
-                      {
-                        // <InfoIcon />
-                      }
-                    </IconButton>
-                  }
-                />
-              </GridListTile>
+          <div className={classes.grid}>
+            {imageCollection.map(image => (
+              <img
+                src={image.img}
+                alt={image.title}
+                className={classes.img}
+                onClick={() => { this.handleListItemClick(image.id); }}
+              />
             ))}
-          </GridList>
+          </div>
         </div>
       </ContentCard>
     );

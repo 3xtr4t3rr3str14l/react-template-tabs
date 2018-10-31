@@ -15,7 +15,7 @@ const styles = {
   },
 };
 
-const ImageCard = (props, height, width, name, price) => {
+const ImageCard = (props) => {
   const { classes } = props;
 
   const mediaStyle = {

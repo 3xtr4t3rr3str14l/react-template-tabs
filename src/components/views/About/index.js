@@ -9,7 +9,7 @@ import Typography from '@material-ui/core/Typography';
 import ImageCard from '../../ImageCard';
 
 import ContentCard from '../../ContentCard';
-import moonMan from '../../../images/moonMan.jpg';
+import amanda from '../../../images/facebook-pics/amanda.jpg';
 
 const styles = {
   imageGroup: {
@@ -26,11 +26,10 @@ const About = (props) => {
     <ContentCard title="About">
       <div className={classes.imageGroup}>
         <ImageCard
-          height={350}
-          width={550}
+          height={600}
           title="The Pooka Air Bong"
           subtitle="Bamboo grown in Texas, painted by DFW musicians and visual artists."
-          image={moonMan}
+          image={amanda}
         />
       </div>
     </ContentCard>

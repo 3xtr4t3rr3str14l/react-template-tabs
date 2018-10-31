@@ -22,7 +22,7 @@ const Contact = (props) => {
   return (
     <ContentCard title="Contact">
       <Typography component="p">
-        <p>Contact us through email, phone, Facebook or Twitter</p>
+        <strong><p>Contact us through email, phone, Facebook or Twitter</p></strong>
         <br />
         <a href="mailto:wjm3@cawb.com"><img className={classes.icon} height={iconSize} width={iconSize} src={emailIcon} alt="Email Icon" /></a>
         <a href="tel:469-863-6271"><img className={classes.icon} height={iconSize} width={iconSize} src={phoneIcon} alt="Phone Icon" /></a>

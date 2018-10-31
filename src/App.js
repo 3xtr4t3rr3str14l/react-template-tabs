@@ -7,22 +7,24 @@ import MyMuiTheme from './MuiTheme';
 import VisibleView from './containers/VisibleView';
 import { setConfig } from './actions';
 import TopBar from './components/TopBar';
-import greenBamboo from './images/greenBamboo.jpg';
-import bambooFloor from './images/bambooFloor.jpg';
+import rainbowBamboo from './images/rainbowBamboo.jpg';
+import bambooCovering from './images/bambooCovering.jpg';
 
 const styles = {
   background: {
-    backgroundImage: `url(${greenBamboo})`,
+    backgroundImage: `url(${rainbowBamboo})`,
     paddingTop: '5px',
     paddingBottom: '20px',
     minHeight: '100%',
     width: 'fit-content',
+    backgroundRepeat: 'round',
+    minWidth: '100%',
   },
   content: {
     margin: 'auto',
-    width: 'fit-content',
-    backgroundImage: `url(${bambooFloor})`,
+    backgroundImage: `url(${bambooCovering})`,
     backgroundRepeat: 'round',
+    backgroundSize: 'cover',
     boxShadow: '0px 12px 13px 10px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12)',
     marginTop: '0px',
     marginBottom: '30px',
@@ -30,8 +32,8 @@ const styles = {
     marginRight: '90px',
   },
   visibleView: {
-    paddingBottom: '60px',
-    paddingTop: '60px',
+    paddingBottom: '30px',
+    paddingTop: '12px',
   },
 };
 
@@ -66,7 +68,7 @@ class App extends React.Component {
           <div style={styles.content}>
             <TopBar />
             <div style={styles.visibleView}>
-              <VisibleView />
+              {this.props.children}
             </div>
           </div>
         </div>
