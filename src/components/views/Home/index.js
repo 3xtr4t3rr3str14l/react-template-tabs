@@ -12,21 +12,7 @@ class Home extends React.Component {
 
     return (
       <ContentCard style={{ paddingBottom: '10px' }}>
-        <ImageCarousel
-          autoScroll
-          overflow="visible"
-          contentStyle={{
-            justifyContent: 'space-around',
-            margin: 'auto',
-            width: '19%',
-            display: 'grid',
-          }}
-          imageStyle={{
-            height: 175,
-            maxWidth: 300,
-            width: '100%',
-          }}
-        />
+        <div>Welcome!</div>
       </ContentCard>
     );
   }

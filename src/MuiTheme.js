@@ -7,7 +7,7 @@ const overwrites = {
     alternateTextColor: '#afb42b',
   },
   typography: {
-    fontFamily: 'RavieFont',
+    // fontFamily: 'RavieFont',
   },
 };
 export default createMuiTheme({ overwrites });

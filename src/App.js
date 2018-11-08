@@ -6,24 +6,23 @@ import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 import MyMuiTheme from './MuiTheme';
 import { setConfig } from './actions';
 import TopBar from './components/TopBar';
-import rainbowBamboo from './images/rainbowBamboo.jpg';
-import bambooCovering from './images/bambooCovering.jpg';
 
 const styles = {
   background: {
-    backgroundImage: `url(${rainbowBamboo})`,
+    // backgroundImage: `url(${fullPageBackground})`,
     paddingTop: '5px',
     paddingBottom: '20px',
     minHeight: '100%',
     width: 'fit-content',
-    backgroundRepeat: 'round',
+    // backgroundRepeat: 'round',
+    // backgroundSize: 'cover',
     minWidth: '100%',
   },
   content: {
     margin: 'auto',
-    backgroundImage: `url(${bambooCovering})`,
-    backgroundRepeat: 'round',
-    backgroundSize: 'cover',
+    // backgroundImage: `url(${contentBackground})`,
+    // backgroundRepeat: 'round',
+    backgroundSize: '100%',
     boxShadow: '0px 12px 13px 10px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12)',
     marginTop: '0px',
     marginBottom: '30px',
@@ -38,26 +37,20 @@ const styles = {
 
 class App extends React.Component {
   componentWillMount() {
-    const config = {
-      version: '1.0.0',
-      url: 'https://api.emailjs.com/api/v1.0/email/send',
-      service: {
-        sendmail: '',
-      },
-      customOrderData: {
-        service_id: 'gmail',
-        template_id: 'template_yYjE84ME',
-        user_id: 'user_uoAncUIB4AD9NWyLIl8iJ',
-        template_params: {},
-      },
-      proShopOrderData: {
-        service_id: 'gmail',
-        template_id: 'pro_shop',
-        user_id: 'user_uoAncUIB4AD9NWyLIl8iJ',
-        template_params: {},
-      },
+    const emailConfig = {
+      // version: '1.0.0',
+      // url: 'https://api.emailjs.com/api/v1.0/email/send',
+      // service: {
+      //   sendmail: '',
+      // },
+      // customOrderData: {
+      //   service_id: 'gmail',
+      //   template_id: 'template_yYjE84ME',
+      //   user_id: 'user_uoAncUIB4AD9NWyLIl8iJ',
+      //   template_params: {},
+      // },
     };
-    this.props.setConfig(config);
+    this.props.setConfig(emailConfig);
   }
 
   render() {

@@ -2,14 +2,14 @@
 
 @font-face {
   font-family: RavieFont;
-  src: url(./images/ravie.ttf);
+  src: url(./fonts/ravie.ttf);
   font-weight: bold;
 }
 
 :global body {
   margin: 0;
   padding: 0;
-  font-family: RavieFont;
+  /*font-family: RavieFont;*/
 }
 
 :global .navbar a.active {

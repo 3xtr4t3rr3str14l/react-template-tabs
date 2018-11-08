@@ -9,11 +9,9 @@ const styles = {
     background: 'rgb(255, 255, 255, 0.6)',
     textAlign: 'center',
     paddingBottom: '40px',
-    fontFamily: 'RavieFont',
   },
   title: {
     textAlign: 'center',
-    fontFamily: 'RavieFont',
   },
 };
 

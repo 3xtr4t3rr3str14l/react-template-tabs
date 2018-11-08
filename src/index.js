@@ -8,15 +8,7 @@ import { createBrowserHistory } from 'history';
 import { connectRouter, routerMiddleware, ConnectedRouter } from 'connected-react-router';
 import { Route, Switch } from 'react-router';
 
-import About from './components/views/About';
 import Home from './components/views/Home';
-import StandardPipes from './components/views/Pipes/StandardPipes';
-import CustomPipes from './components/views/Pipes/CustomPipes';
-import ProShop from './components/views/Pipes/ProShop';
-import Swag from './components/views/Swag';
-import Contact from './components/views/Contact';
-import Events from './components/views/Events';
-import Gallery from './components/views/Gallery';
 
 import WebPortalApp from './reducers';
 import './index.scss';
@@ -44,14 +36,10 @@ render(
         <div>
           <Switch>
             <Route exact path="/" render={() => (<Home />)} />
-            <Route path="/about" render={() => (<About />)} />
-            <Route path="/standardpipes" render={() => (<StandardPipes />)} />
-            <Route path="/custompipes" render={() => (<CustomPipes />)} />
-            <Route path="/proshop" render={() => (<ProShop />)} />
-            <Route path="/swag" render={() => (<Swag />)} />
-            <Route path="/contact" render={() => (<Contact />)} />
-            <Route path="/events" render={() => (<Events />)} />
-            <Route path="/gallery" render={() => (<Gallery />)} />
+            {
+              // stanard routes go here
+              // <Route path="/about" render={() => (<About />)} />
+            }
           </Switch>
         </div>
       </ConnectedRouter>

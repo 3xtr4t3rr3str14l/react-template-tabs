@@ -6,15 +6,13 @@ import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import { push } from 'connected-react-router';
 
-import { setVisibilityFilter } from '../../actions';
-import coralHibiscus from '../../images/coralHibiscus.png';
-import darkBambooFloor from '../../images/darkBambooFloor.jpg';
 import './index.css';
 
 const themeColor = 'white';
 const styles = {
   root: {
-    backgroundImage: `url(${darkBambooFloor})`,
+    // backgroundImage: `url(${tabBackground})`,
+    backgroundColor: 'red',
     backgroundRepeat: 'round',
     backgroundSize: 'cover',
   },
@@ -26,40 +24,37 @@ const styles = {
     color: themeColor,
   },
   header: {
-    display: 'inline-flex',
+    // display: 'inline-flex',
   },
   titleText: {
     textAlign: 'center',
     color: themeColor,
-    fontFamily: 'RavieFont',
     fontSize: '300%',
     margin: 'auto',
   },
-  coralHibiscus: {
-    width: '20%',
-    height: '15%',
-    padding: '15px',
-  },
+  // pageIcon: {
+  //   width: '20%',
+  //   height: '15%',
+  //   padding: '15px',
+  // },
   tabs: {
     display: 'flex',
     justifyContent: 'center',
     color: themeColor,
-    fontFamily: 'RavieFont',
   },
   tab: {
-    fontFamily: 'RavieFont',
     fontSize: 'large',
     color: themeColor,
     opacity: '1',
   },
   menu: {
     style: {
-      backgroundImage: `url(${darkBambooFloor})`,
+      // backgroundImage: `url(${tabBackground})`,
+      backgroundColor: 'red',
       backgroundRepeat: 'round',
     },
   },
   menuItem: {
-    fontFamily: 'RavieFont',
     fontSize: 'large',
     color: themeColor,
   },
@@ -67,13 +62,8 @@ const styles = {
 
 const Header = props => (
   <div>
-    <div style={styles.disclaimer}>Bamboo Tobacco Bongs are Intended for Tobacco use only</div>
-    <div style={styles.header} onClick={() => props.onClick('HOME')} role="button" tabIndex={0}>
-      <img src={coralHibiscus} alt="Hibiscus Flower" style={styles.coralHibiscus} />
-      <div style={styles.titleText}>The Original Pooka Air Bong</div>
-      {
-        // <img src={coralHibiscus} alt="Hibiscus Flower" style={styles.coralHibiscus} />
-      }
+    <div style={styles.header}>
+      <div style={styles.titleText}>Sample Page</div>
     </div>
   </div>
 );
@@ -103,12 +93,7 @@ class MenuBar extends React.Component {
         />
         <Tab
           style={styles.tab}
-          label="About"
-          onClick={() => this.props.pushRoute('/about')}
-        />
-        <Tab
-          style={styles.tab}
-          label="Pipes"
+          label="Dropdown"
           aria-owns={anchorEl ? 'simple-menu' : null}
           aria-haspopup="true"
           onClick={this.handleOpen}
@@ -124,48 +109,27 @@ class MenuBar extends React.Component {
             style={styles.menuItem}
             onClick={() => {
               this.handleClose();
-              this.props.onClick('STANDARD_PIPES');
-              this.props.pushRoute('/standardpipes');
+              // this.props.pushRoute('/pageOne');
             }}
-          >Standard Pipes
+          >Page One
           </MenuItem>
           <MenuItem
             style={styles.menuItem}
             onClick={() => {
               this.handleClose();
-              this.props.pushRoute('/custompipes');
+              // this.props.pushRoute('/pageTwo');
             }}
-          >Custom Pipes
+          >Page Two
           </MenuItem>
           <MenuItem
             style={styles.menuItem}
             onClick={() => {
               this.handleClose();
-              this.props.pushRoute('/proshop');
+              // this.props.pushRoute('/pageThree');
             }}
-          >Pro Shop
+          >Page Three
           </MenuItem>
         </Menu>
-        <Tab
-          style={styles.tab}
-          label="Swag"
-          onClick={() => this.props.pushRoute('/swag')}
-        />
-        <Tab
-          style={styles.tab}
-          label="Contact"
-          onClick={() => this.props.pushRoute('/contact')}
-        />
-        <Tab
-          style={styles.tab}
-          label="Events"
-          onClick={() => this.props.pushRoute('/events')}
-        />
-        <Tab
-          style={styles.tab}
-          label="Gallery"
-          onClick={() => this.props.pushRoute('/gallery')}
-        />
       </Tabs>
     );
   }
@@ -174,14 +138,11 @@ class MenuBar extends React.Component {
 const TopBar = props => (
   <div style={styles.root}>
     {Header(props)}
-    {<MenuBar onClick={props.onClick} pushRoute={props.pushRoute} />}
+    {<MenuBar pushRoute={props.pushRoute} />}
   </div>
 );
 
 const mapDispatchToProps = dispatch => ({
-  onClick: (filter) => {
-    dispatch(setVisibilityFilter(filter));
-  },
   pushRoute: (route) => {
     dispatch(push(route));
   },
