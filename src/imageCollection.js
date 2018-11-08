@@ -11,4 +11,4 @@ function importAll(r) {
   return tileData;
 }
 
-export default importAll(require.context('./images/facebook-pics', false, /\.(png|jpe?g|svg)$/));
+export default importAll(require.context('./images/', false, /\.(png|jpe?g|svg)$/));
