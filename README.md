@@ -1,2 +1,2 @@
 README
-# react-redux-template
+# react-template-tabs
